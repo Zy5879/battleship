@@ -1,4 +1,4 @@
-const Ship = (length) => {
+const Ship = (name, length) => {
   let currentlength = Array(length);
   new Array(currentlength);
   let hitcounter = 1;
@@ -9,14 +9,15 @@ const Ship = (length) => {
   const isSunk = () => {
     // let sunk;
     if (currentlength == 0) {
-      console.log(true);
+      //   console.log(true);
       return true;
     } else {
-      console.log(false);
+      //   console.log(false);
       return false;
     }
   };
   return {
+    name,
     length,
     currentlength,
     hit,
@@ -25,17 +26,3 @@ const Ship = (length) => {
 };
 
 export default Ship;
-
-let ship1 = Ship(5);
-ship1.hit();
-console.log(ship1);
-
-// let ship1 = Ship(2);
-// console.log(ship1.length);
-// let ship2 = Ship(3);
-// ship1.isSunk();
-// console.log(ship1);
-// console.log(ship2);
-// let ship2 = Ship(4);
-// console.log(ship1);
-// console.log(ship2);
