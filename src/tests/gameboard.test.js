@@ -19,5 +19,13 @@ test("Ship is placed on GameBoard", () => {
   board.createMap(10, 10);
   board.checkShipValidity(0, 0, ship);
   let gridboard = board.grid;
-  expect(gridboard[0][0]).toBe(ship.name);
+  expect(gridboard[0][0]).toBe(ship);
+});
+
+test("Gameboard receives an attack.", () => {
+  let board = Gameboard;
+  board.createMap(10, 10);
+  board.recieveAttack(0, 0);
+  let gridboard = board.grid;
+  expect(gridboard[0][0]).toBe("X");
 });
