@@ -1,24 +1,21 @@
-const Ship = (names, shift, hits) => {
-  hits = 0;
-  // const isSunk = () => {
-  //   // let sunk;
-  //   if ((hits = 0)) {
-  //     console.log(true);
-  //     return true;
-  //     // console.log(true);
-  //     //   return true;
-  //   } else {
-  //     console.log(false);
-  //     return false;
-  //   }
-  // };
+export const Ship = (names, length = 0, hits = 0) => {
+  function attack() {
+    this.hits++;
+  }
+
+  function isSunk() {
+    if (this.hits == length) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   return {
     names,
-    shift,
+    length,
     hits,
+    isSunk,
+    attack,
   };
 };
-export default Ship;
-
-let ship1 = Ship("Sub", 4);
-console.log(ship1);
