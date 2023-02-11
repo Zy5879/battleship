@@ -71,6 +71,31 @@ export const game = (() => {
     gameboardcontainer.appendChild(computergameboard);
   }
 
+  function playRound(e) {
+    if (e.target.classList.contains("taken")) {
+      e.target.classList.add("landed");
+    } else {
+      e.target.classList.add("miss");
+    }
+  }
+
+  const computersection = document.querySelectorAll(".computersection");
+  computersection.forEach((section) => {
+    section.addEventListener("click", playRound);
+  });
+
+  //   const computersection = document.querySelectorAll(".computersection");
+  //   computersection.forEach((section) => {
+  //     section.addEventListener("click", () => {
+  //       if (section.classList.contains("taken")) {
+  //         console.log("this spot is taken");
+  //         section.classList.add("landed");
+  //       } else {
+  //         section.classList.add("miss");
+  //         console.log("This spot is not taken");
+  //       }
+  //     });
+  //   });
   return {
     // player1,
     // computer,

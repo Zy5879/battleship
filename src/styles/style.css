@@ -44,12 +44,25 @@
 .computersection {
   border: 1px solid black;
   background-color: white;
+  cursor: crosshair;
+}
+
+.computersection:hover {
+  background-color: plum;
 }
 
 /* render battleship boards */
 
-/* placing ships */
+/* css effects */
 
 .taken {
   background-color: cornflowerblue;
+}
+
+.landed {
+  background-color: #39ff14;
+}
+
+.miss {
+  background-color: plum;
 }
