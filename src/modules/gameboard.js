@@ -13,7 +13,8 @@ const Gameboard = () => {
     for (let i = 0; i < rows; i++) {
       grid[i] = [];
       for (let j = 0; j < columns; j++) {
-        grid[i][j] = "0";
+        // grid[i][j] = "0";
+        grid[i][j] = "";
       }
     }
     return grid;
@@ -21,7 +22,13 @@ const Gameboard = () => {
 
   function placeShip(x, y, ship) {
     for (let i = 0; i < ship.length; i++) {
-      grid[Number(x)][Number(y) + i] = ship;
+      grid[Number(x)][Number(y) + i] = ship.length;
+    }
+  }
+
+  function computerPlaceShip(x, y, ship) {
+    for (let i = 0; i < ship.length; i++) {
+      grid[Number(x)][Number(y) + i] = ship.length;
     }
   }
 
@@ -55,6 +62,7 @@ const Gameboard = () => {
     getBoard,
     recieveAttack,
     placeShip,
+    computerPlaceShip,
     grid,
   };
 };
