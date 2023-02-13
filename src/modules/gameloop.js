@@ -112,6 +112,14 @@ export const game = (() => {
           );
           section.classList.add("miss");
         }
+        if ((index, i, row == "X")) {
+          console.log(index, i, row, "This is X");
+          const section = document.querySelector(
+            `[data-playervalue="${index + "-" + i}"]`
+          );
+          console.log(section);
+          section.classList.add("landed");
+        }
         // console.log(index, i, row);
       });
     });

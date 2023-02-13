@@ -13,22 +13,11 @@ const Gameboard = () => {
     for (let i = 0; i < rows; i++) {
       grid[i] = [];
       for (let j = 0; j < columns; j++) {
-        // grid[i][j] = "0";
         grid[i][j] = "";
-        // console.log(i + "-" + j);
-        // console.log(i, j);
-        // addCell(i, j);
       }
     }
     return grid;
   };
-
-  function addCell(i, j) {
-    grid[i][j] = cell(i, j);
-  }
-  function cell(i, j) {
-    console.log(i + "-" + j);
-  }
 
   function placeShip(x, y, ship) {
     for (let i = 0; i < ship.length; i++) {
