@@ -81,24 +81,29 @@ export const game = (() => {
     gameboardcontainer.appendChild(computergameboard);
   }
 
+  let computerValue = [];
+
   const computersection = document.querySelectorAll(".computersection");
   computersection.forEach((section) => {
     section.addEventListener("click", playRound);
   });
 
   function playRound(e) {
+    let targetValue = e.target.getAttribute("data-computervalue");
+
     if (e.target.classList.contains("taken")) {
       e.target.classList.add("landed");
     } else {
       e.target.classList.add("miss");
     }
+
+    player1.attackComputer(computerboard, targetValue[0], targetValue[2]);
     computerSelection();
   }
 
   function computerSelection() {
     let player1grid = player1board.grid;
     computer.randomAttack(player1board);
-    // const playersection = document.querySelectorAll(".section");
 
     player1grid.forEach((col, index) => {
       col.forEach((row, i) => {
@@ -120,91 +125,9 @@ export const game = (() => {
           console.log(section);
           section.classList.add("landed");
         }
-        // console.log(index, i, row);
       });
     });
   }
 
-  // function renderPlayerBoard() {
-  //   const gameboard = document.createElement("div");
-  //   gameboard.classList.add("playergame-board");
-  //   const gameboardcontainer = document.querySelector(".gameboard-container");
-  //   let player1grid = player1board.grid;
-
-  //   for (const i of player1grid) {
-  //     const gameboardiv = document.createElement("div");
-  //     gameboardiv.classList.add("block-number");
-  //     for (const j of i) {
-  //       console.log(j, i);
-  //       const subgameboardiv = document.createElement("div");
-  //       subgameboardiv.classList.add("section");
-  //       player1boardblocks.push(subgameboardiv);
-  //       // subgameboardiv.innerHTML = `${j}`;
-  //       if (j) {
-  //         subgameboardiv.classList.add("taken");
-  //         subgameboardiv.classList.add(j);
-  //       }
-  //       gameboardiv.appendChild(subgameboardiv);
-  //     }
-  //     gameboard.appendChild(gameboardiv);
-  //   }
-  //   gameboardcontainer.appendChild(gameboard);
-  // }
-
-  // function renderComputerBoard() {
-  //   const computergameboard = document.createElement("div");
-  //   computergameboard.classList.add("computer-board");
-  //   const gameboardcontainer = document.querySelector(".gameboard-container");
-  //   let computergrid = computerboard.grid;
-
-  //   for (const i of computergrid) {
-  //     const computergameboardiv = document.createElement("div");
-  //     computergameboardiv.classList.add("computerblock-number");
-  //     console.log(i);
-  //     for (const j of i) {
-  //       const subgameboardiv = document.createElement("div");
-  //       subgameboardiv.classList.add("computersection");
-  //       computerboardblocks.push(subgameboardiv);
-  //       if (j) {
-  //         subgameboardiv.classList.add("taken");
-  //         subgameboardiv.classList.add(j);
-  //       }
-  //       computergameboardiv.appendChild(subgameboardiv);
-  //     }
-  //     computergameboard.appendChild(computergameboardiv);
-  //   }
-  //   gameboardcontainer.appendChild(computergameboard);
-  // }
-
-  // const computersection = document.querySelectorAll(".computersection");
-  // computersection.forEach((section) => {
-  //   section.addEventListener("click", playRound);
-  // });
-
-  // function playRound(e) {
-  //   if (e.target.classList.contains("taken")) {
-  //     e.target.classList.add("landed");
-  //   } else {
-  //     e.target.classList.add("miss");
-  //   }
-  //   computerSelection();
-  // }
-
-  // function computerSelection() {
-  //   computer.randomAttack(player1board);
-  //   let playerships = player1.ships;
-  //   const playersection = document.querySelectorAll(".section");
-  //   let player1grid = player1board.grid;
-  //   player1grid.forEach((column, index) => {
-  //     console.log(column, index);
-  //     column.forEach((row, index) => {});
-  //   });
-
-  // }
-
-  return {
-    // player1,
-    // computer,
-    // renderGameBoard,
-  };
+  return {};
 })();

@@ -15,6 +15,10 @@ export const Player = (name) => {
 
   const ships = [submarine, cruiser, destroyer, battleship];
 
+  function attackComputer(board, x, y) {
+    board.recieveAttack(x, y);
+  }
+
   function randomAttack(grid) {
     let xRandomNumber = Math.floor(Math.random() * 9);
     let yRandomNumber = Math.floor(Math.random() * 9);
@@ -32,6 +36,7 @@ export const Player = (name) => {
     board,
     boardBlocks,
     randomAttack,
+    attackComputer,
   };
 };
 
