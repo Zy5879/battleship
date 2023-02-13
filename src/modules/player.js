@@ -11,6 +11,8 @@ export const Player = (name) => {
   let board = Gameboard();
   board.createMap(10, 10);
 
+  let boardBlocks = [];
+
   const ships = [submarine, cruiser, destroyer, battleship];
 
   function randomAttack(grid) {
@@ -21,12 +23,14 @@ export const Player = (name) => {
       randomAttack(grid);
     } else {
       grid.recieveAttack(xRandomNumber, yRandomNumber);
+      console.log(xRandomNumber, yRandomNumber);
     }
   }
   return {
     name,
     ships,
     board,
+    boardBlocks,
     randomAttack,
   };
 };

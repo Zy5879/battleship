@@ -15,20 +15,24 @@ const Gameboard = () => {
       for (let j = 0; j < columns; j++) {
         // grid[i][j] = "0";
         grid[i][j] = "";
+        // console.log(i + "-" + j);
+        // console.log(i, j);
+        // addCell(i, j);
       }
     }
     return grid;
   };
 
-  function placeShip(x, y, ship) {
-    for (let i = 0; i < ship.length; i++) {
-      grid[Number(x)][Number(y) + i] = ship.length;
-    }
+  function addCell(i, j) {
+    grid[i][j] = cell(i, j);
+  }
+  function cell(i, j) {
+    console.log(i + "-" + j);
   }
 
-  function computerPlaceShip(x, y, ship) {
+  function placeShip(x, y, ship) {
     for (let i = 0; i < ship.length; i++) {
-      grid[Number(x)][Number(y) + i] = ship.length;
+      grid[Number(x)][Number(y) + i] = ship.names;
     }
   }
 
@@ -38,20 +42,20 @@ const Gameboard = () => {
 
   function recieveAttack(x, y) {
     // let board = grid;
-    if (grid[x][y] == cruiser) {
+    if (grid[x][y] == cruiser.names) {
       grid[x][y] = "X";
       cruiser.attack();
-    } else if (grid[x][y] == battleship) {
+    } else if (grid[x][y] == battleship.names) {
       grid[x][y] = "X";
       battleship.attack();
-    } else if (grid[x][y] == submarine) {
+    } else if (grid[x][y] == submarine.names) {
       grid[x][y] = "X";
       submarine.attack();
-    } else if (grid[x][y] == destroyer) {
+    } else if (grid[x][y] == destroyer.names) {
       grid[x][y] = "X";
       destroyer.attack();
-    } else if ((grid[x][y] = "0")) {
-      grid[x][y] = "X";
+    } else if (grid[x][y] == "") {
+      grid[x][y] = "O";
     } else {
       console.log("Coord has already been attacked");
     }
@@ -62,7 +66,6 @@ const Gameboard = () => {
     getBoard,
     recieveAttack,
     placeShip,
-    computerPlaceShip,
     grid,
   };
 };
