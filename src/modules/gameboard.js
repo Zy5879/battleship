@@ -1,13 +1,19 @@
 import { Ship } from "./ship";
 
-let cruiser = Ship("Cruiser", 5);
-let battleship = Ship("Battleship", 4);
-let submarine = Ship("Submarine", 3);
-let destroyer = Ship("Destroyer", 2);
+// let cruiser = Ship("Cruiser", 5);
+// let battleship = Ship("Battleship", 4);
+// let submarine = Ship("Submarine", 3);
+// let destroyer = Ship("Destroyer", 2);
 
-const ships = [cruiser, battleship, submarine, destroyer];
+// const ships = [cruiser, battleship, submarine, destroyer];
 
 const Gameboard = () => {
+  let cruiser = Ship("Cruiser", 5);
+  let battleship = Ship("Battleship", 4);
+  let submarine = Ship("Submarine", 3);
+  let destroyer = Ship("Destroyer", 2);
+
+  const ships = [cruiser, battleship, submarine, destroyer];
   let grid = [];
   const createMap = (rows, columns) => {
     for (let i = 0; i < rows; i++) {
@@ -56,13 +62,24 @@ const Gameboard = () => {
     recieveAttack,
     placeShip,
     grid,
+    ships,
   };
 };
-
-export { Gameboard, cruiser, submarine, destroyer, battleship };
+export { Gameboard };
+// export { Gameboard, cruiser, submarine, destroyer, battleship };
 
 // let board = Gameboard();
 // board.createMap(10, 10);
+// let playerships = board.ships;
+// board.placeShip(0, 1, playerships[0]);
+// board.recieveAttack(0, 1);
+// console.log(board);
+
+// let board2 = Gameboard();
+// board2.createMap(10, 10);
+// let computerships = board2.ships;
+// board2.placeShip(0, 1, computerships[0]);
+// console.log(board2);
 
 // console.log(board.createMap(10, 10).length);
 // let player1grid = board.grid;
