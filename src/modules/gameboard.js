@@ -31,6 +31,32 @@ const Gameboard = () => {
     }
   }
 
+  function randomPlaceShip(ship) {
+    let xRandomNumber = Math.floor(Math.random() * 9);
+    let yRandomNumber = Math.floor(Math.random() * 9);
+
+    if (yRandomNumber + ship.length > grid[xRandomNumber].length) {
+      yRandomNumber = yRandomNumber - ship.length;
+    } else {
+      yRandomNumber;
+    }
+
+    let numbers = [];
+    for (let i = 0; i < ship.length; i++) {
+      numbers.push(yRandomNumber + i);
+    }
+
+    const isValid = numbers.every((num) => grid[xRandomNumber][num] == "");
+
+    if (isValid) {
+      numbers.forEach((num) => {
+        grid[xRandomNumber][num] = ship.names;
+      });
+    } else {
+      randomPlaceShip(ship);
+    }
+  }
+
   const getBoard = () => {
     return grid;
   };
@@ -59,12 +85,14 @@ const Gameboard = () => {
   return {
     createMap,
     getBoard,
+    randomPlaceShip,
     recieveAttack,
     placeShip,
     grid,
     ships,
   };
 };
+
 export { Gameboard };
 // export { Gameboard, cruiser, submarine, destroyer, battleship };
 
