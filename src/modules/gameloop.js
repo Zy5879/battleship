@@ -11,11 +11,12 @@ import { Ship } from "./ship";
 export const game = (() => {
   let player1 = Player("Zaire");
   let player1board = player1.board;
+  let player1ships = player1board.ships;
   let player1boardblocks = player1.boardBlocks;
-  player1board.placeShip(0, 1, cruiser);
-  player1board.placeShip(1, 3, battleship);
-  player1board.placeShip(2, 1, submarine);
-  player1board.placeShip(3, 5, destroyer);
+  player1board.placeShip(0, 1, player1ships[0]);
+  player1board.placeShip(1, 3, player1ships[1]);
+  player1board.placeShip(2, 1, player1ships[2]);
+  player1board.placeShip(3, 5, player1ships[3]);
 
   let playerShipsHit = [];
   let computerShipsHit = [];
@@ -23,10 +24,11 @@ export const game = (() => {
   let computer = Player("Computer");
   let computerboardblocks = computer.boardBlocks;
   let computerboard = computer.board;
-  computerboard.placeShip(1, 2, cruiser);
-  computerboard.placeShip(4, 2, battleship);
-  computerboard.placeShip(3, 3, destroyer);
-  computerboard.placeShip(7, 2, submarine);
+  let computerships = computerboard.ships;
+  computerboard.placeShip(1, 2, computerships[0]);
+  computerboard.placeShip(4, 2, computerships[1]);
+  computerboard.placeShip(3, 3, computerships[2]);
+  computerboard.placeShip(7, 2, computerships[3]);
 
   renderPlayerBoard();
   renderComputerBoard();
@@ -99,6 +101,7 @@ export const game = (() => {
 
     player1.attackComputer(computerboard, targetValue[0], targetValue[2]);
     computerSelection();
+    checkWinner();
   }
 
   function computerSelection() {
@@ -108,25 +111,43 @@ export const game = (() => {
     player1grid.forEach((col, index) => {
       col.forEach((row, i) => {
         if ((index, i, row == "O")) {
-          console.log(index, i, "This is O");
-          console.log(
-            document.querySelector(`[data-playervalue="${index + "-" + i}"]`)
-          );
+          // console.log(index, i, "This is O");
+          // console.log(
+          //   document.querySelector(`[data-playervalue="${index + "-" + i}"]`)
+          // );
           const section = document.querySelector(
             `[data-playervalue="${index + "-" + i}"]`
           );
           section.classList.add("miss");
         }
         if ((index, i, row == "X")) {
-          console.log(index, i, row, "This is X");
+          // console.log(index, i, row, "This is X");
           const section = document.querySelector(
             `[data-playervalue="${index + "-" + i}"]`
           );
-          console.log(section);
+          // console.log(section);
           section.classList.add("landed");
         }
       });
     });
+  }
+
+  function checkWinner() {
+    // console.log(player1ships);
+    // console.log(computerships);
+    // let player1ship = player1.ships;
+    // let computership = computer.ships;
+    // console.log(player1ship);
+    // console.log(computer.ships);
+    // console.log(player1ship.every((ship) => ship.isSunk() == true));
+    // console.log(computerships.every((ship) => ship.isSunk() == true));
+    if (player1ships.every((ship) => ship.isSunk() == true)) {
+      alert(`All of ${player1.name} ships have sunk`);
+    } else if (computerships.every((ship) => ship.isSunk() == true)) {
+      alert(`All of ${computer.name} ships have sunk`);
+    } else {
+      return;
+    }
   }
 
   return {};

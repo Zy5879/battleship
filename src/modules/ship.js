@@ -4,7 +4,7 @@ export const Ship = (names, length = 0, hits = 0) => {
   }
 
   function isSunk() {
-    if (this.hits == length) {
+    if (this.hits >= length) {
       return true;
     } else {
       return false;

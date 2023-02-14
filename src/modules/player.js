@@ -1,10 +1,10 @@
 import { Ship } from "./ship";
 import {
   Gameboard,
-  submarine,
-  cruiser,
-  destroyer,
-  battleship,
+  // submarine,
+  // cruiser,
+  // destroyer,
+  // battleship,
 } from "./gameboard";
 
 export const Player = (name) => {
@@ -12,6 +12,11 @@ export const Player = (name) => {
   board.createMap(10, 10);
 
   let boardBlocks = [];
+
+  let cruiser = Ship("Cruiser", 5);
+  let battleship = Ship("Battleship", 4);
+  let submarine = Ship("Submarine", 3);
+  let destroyer = Ship("Destroyer", 2);
 
   const ships = [submarine, cruiser, destroyer, battleship];
 
@@ -40,7 +45,6 @@ export const Player = (name) => {
   };
 };
 
-// let player1 = Player("Zaire");
 // let player2 = Player("Computer");
 
 // let playerboard = player1.board;
