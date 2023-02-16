@@ -76,7 +76,7 @@ const Gameboard = () => {
   }
 
   function clearBoard(board) {
-    createMap(10, 10);
+    board.createMap(10, 10);
   }
 
   return {
