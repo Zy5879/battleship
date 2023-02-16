@@ -13,12 +13,12 @@ export const Player = (name) => {
 
   let boardBlocks = [];
 
-  let cruiser = Ship("Cruiser", 5);
-  let battleship = Ship("Battleship", 4);
-  let submarine = Ship("Submarine", 3);
-  let destroyer = Ship("Destroyer", 2);
+  // let cruiser = Ship("Cruiser", 5);
+  // let battleship = Ship("Battleship", 4);
+  // let submarine = Ship("Submarine", 3);
+  // let destroyer = Ship("Destroyer", 2);
 
-  const ships = [submarine, cruiser, destroyer, battleship];
+  // const ships = [submarine, cruiser, destroyer, battleship];
 
   function attackComputer(board, x, y) {
     board.recieveAttack(x, y);
@@ -32,12 +32,11 @@ export const Player = (name) => {
       randomAttack(grid);
     } else {
       grid.recieveAttack(xRandomNumber, yRandomNumber);
-      console.log(xRandomNumber, yRandomNumber);
     }
   }
   return {
     name,
-    ships,
+    // ships,
     board,
     boardBlocks,
     randomAttack,

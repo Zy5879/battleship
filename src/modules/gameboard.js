@@ -1,12 +1,5 @@
 import { Ship } from "./ship";
 
-// let cruiser = Ship("Cruiser", 5);
-// let battleship = Ship("Battleship", 4);
-// let submarine = Ship("Submarine", 3);
-// let destroyer = Ship("Destroyer", 2);
-
-// const ships = [cruiser, battleship, submarine, destroyer];
-
 const Gameboard = () => {
   let cruiser = Ship("Cruiser", 5);
   let battleship = Ship("Battleship", 4);
@@ -82,8 +75,13 @@ const Gameboard = () => {
     }
   }
 
+  function clearBoard(board) {
+    createMap(10, 10);
+  }
+
   return {
     createMap,
+    clearBoard,
     getBoard,
     randomPlaceShip,
     recieveAttack,
