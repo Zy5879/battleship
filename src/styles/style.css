@@ -2,17 +2,25 @@
   box-sizing: border-box;
 }
 
+/* header/title */
+
+.header {
+  text-align: center;
+  padding: 3rem 3rem;
+}
+
 /* render battleship boards */
 
 .gameboard-container {
-  width: 500px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  padding: 3rem 3rem;
+  /* align-content: center; */
 }
 
 .playergame-board {
-  display: grid;
-  width: 400px;
+  /* display: grid; */
+  width: 300px;
   /* height: 200px; */
 }
 
@@ -29,8 +37,10 @@
 }
 
 .computer-board {
-  display: grid;
-  height: 200px;
+  width: 300px;
+
+  /* display: grid; */
+  /* height: 200px; */
 }
 
 .computerblock-number {
