@@ -65,18 +65,22 @@
 
 /* css effects */
 
-/* .section.taken {
-  background-color: cornflowerblue;
-} */
-.taken {
+.section.taken {
   background-color: cornflowerblue;
 }
+/* .taken {
+  background-color: cornflowerblue;
+} */
 
 .landed {
   background-color: #39ff14;
 }
 
 .landedcomputer {
+  background-color: #39ff14;
+}
+
+.landed:hover {
   background-color: #39ff14;
 }
 
