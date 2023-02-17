@@ -138,11 +138,10 @@ export const game = (() => {
   function checkWinner() {
     const modal = document.getElementById("modal");
     if (player1ships.every((ship) => ship.isSunk() == true)) {
-      alert(`All of ${player1.name} ships have sunk`);
       const modalwinner = document.querySelector(".displaywinner");
       modalwinner.textContent = ` Bummer!! You lost to the ${computer.name}`;
+      openModal(modal);
     } else if (computerships.every((ship) => ship.isSunk() == true)) {
-      alert(`All of ${computer.name} ships have sunk`);
       const modalwinner = document.querySelector(".displaywinner");
       modalwinner.textContent = ` Congratulations ${player1.name}! You Win!`;
       openModal(modal);
