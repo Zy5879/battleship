@@ -1,12 +1,4 @@
-import {
-  Gameboard,
-  cruiser,
-  submarine,
-  destroyer,
-  battleship,
-} from "./gameboard";
 import { Player } from "./player";
-import { Ship } from "./ship";
 
 export const game = (() => {
   function openModal(modal) {
@@ -148,11 +140,11 @@ export const game = (() => {
     if (player1ships.every((ship) => ship.isSunk() == true)) {
       alert(`All of ${player1.name} ships have sunk`);
       const modalwinner = document.querySelector(".displaywinner");
-      modalwinner.textContent = `${computer.name} is the winner`;
+      modalwinner.textContent = ` Bummer!! You lost to the ${computer.name}`;
     } else if (computerships.every((ship) => ship.isSunk() == true)) {
       alert(`All of ${computer.name} ships have sunk`);
       const modalwinner = document.querySelector(".displaywinner");
-      modalwinner.textContent = `${player1.name} is the winner`;
+      modalwinner.textContent = ` Congratulations ${player1.name}! You Win!`;
       openModal(modal);
     } else {
       return;
@@ -191,6 +183,4 @@ export const game = (() => {
       section.addEventListener("click", playRound, { once: true });
     });
   }
-
-  // return {};
 })();

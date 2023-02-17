@@ -71,7 +71,7 @@ const Gameboard = () => {
     } else if (grid[x][y] == "") {
       grid[x][y] = "O";
     } else {
-      console.log("Coord has already been attacked");
+      return false;
     }
   }
 
@@ -92,23 +92,3 @@ const Gameboard = () => {
 };
 
 export { Gameboard };
-// export { Gameboard, cruiser, submarine, destroyer, battleship };
-
-// let board = Gameboard();
-// board.createMap(10, 10);
-// let playerships = board.ships;
-// board.placeShip(0, 1, playerships[0]);
-// board.recieveAttack(0, 1);
-// console.log(board);
-
-// let board2 = Gameboard();
-// board2.createMap(10, 10);
-// let computerships = board2.ships;
-// board2.placeShip(0, 1, computerships[0]);
-// console.log(board2);
-
-// console.log(board.createMap(10, 10).length);
-// let player1grid = board.grid;
-// board.placeShip(0, 1, battleship);
-// board.recieveAttack(0, 0);
-// console.log(player2);
