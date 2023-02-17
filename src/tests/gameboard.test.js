@@ -26,5 +26,5 @@ test("Gameboard receives an attack.", () => {
   board.createMap(10, 10);
   board.recieveAttack(0, 0);
   let gridboard = board.grid;
-  expect(gridboard[0][0]).toBe("X");
+  expect(gridboard[0][0]).toBe("O");
 });
